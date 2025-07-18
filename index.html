@@ -2,93 +2,111 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Hauskeep – Luxury Cleaning Pro | Hauskeep Network™</title>
+    <title>Hauskeep Network™ – Only the Cleanest. Only the Best.</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; background: #fafafa; color: #222; }
-        header, footer { background-color: #000; color: #fff; text-align: center; padding: 22px; }
-        nav a { color: #fff; margin: 0 15px; text-decoration: none; font-weight: 500; }
-        .profile { max-width: 900px; margin: 40px auto; background: #fff; border-radius: 10px; box-shadow: 0 4px 20px #0001; padding: 38px 28px; }
-        .profile-header { display: flex; align-items: center; gap: 30px; flex-wrap: wrap; }
-        .profile-photo {
-            width: 140px; height: 140px; border-radius: 50%; background: #eaeaea;
-            background-image: url('https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=facearea&w=400&h=400&q=80');
-            background-size: cover; background-position: center;
-            border: 3px solid #dfdfdf;
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fdfdfc;
+            color: #333;
+            margin: 0;
+            padding: 0;
         }
-        .profile-info { flex: 1; min-width: 250px; }
-        .verified { color: #07a657; font-size: 1em; margin-left: 12px; font-weight: bold; }
-        .domestiq { background: #dfc5a1; color: #674600; border-radius: 6px; padding: 4px 10px; font-weight: bold; font-size: 0.95em; margin-left: 8px;}
-        .profile-info h2 { font-size: 2.2em; margin: 0 0 8px; }
-        .tags { margin-top: 10px; }
-        .tag {
-            display: inline-block; background: #f3f3f3; color: #555;
-            border-radius: 5px; padding: 5px 15px; margin: 4px 5px 4px 0;
-            font-size: 1em; border: 1px solid #e7e7e7;
+        header, footer {
+            background-color: #000;
+            color: #fff;
+            padding: 25px 20px;
+            text-align: center;
         }
-        .rate {
-            background: #f6f1e7;
-            border-radius: 6px;
-            display: inline-block;
-            margin: 15px 0;
-            padding: 10px 18px;
-            font-size: 1.15em;
-            color: #a06b18;
+        header h1 {
+            font-size: 3em;
+            margin: 0 0 10px;
+            letter-spacing: 2px;
+            font-weight: bold;
+        }
+        nav {
+            margin-top: 10px;
+        }
+        nav a {
+            color: #fff;
+            margin: 0 12px;
+            text-decoration: none;
             font-weight: 500;
-        }
-        .contact-bar {
-            margin: 25px 0 10px;
-        }
-        .contact-bar a {
-            display: inline-block;
-            margin-right: 14px;
-            background: #000;
-            color: #fff;
-            padding: 10px 20px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: bold;
             font-size: 1em;
-            transition: background 0.2s;
+            letter-spacing: 1px;
         }
-        .contact-bar a:hover { background: #333; }
-        .website-link { color: #674600; text-decoration: underline; font-weight: bold; }
-        .bookpay-btn {
-            background: #a06b18;
-            color: #fff;
-            padding: 18px 48px;
-            font-size: 1.3em;
-            border-radius: 7px;
-            margin: 36px 0 10px 0;
-            display: inline-block;
-            text-decoration: none;
+        section {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .hero {
+            text-align: center;
+            background: linear-gradient(to bottom right, #f2f2f2, #e8e8e8);
+            padding: 100px 20px;
+        }
+        .hero h2 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
             font-weight: bold;
+        }
+        .hero p {
+            font-size: 1.25em;
+            margin-bottom: 30px;
+        }
+        .button {
+            background-color: #000;
+            color: #fff;
+            padding: 15px 28px;
+            margin: 10px;
             border: none;
-            box-shadow: 0 2px 10px #0002;
-            transition: background 0.18s;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: background 0.15s;
         }
-        .bookpay-btn:hover { background: #c9983c; }
-        .howitworks {
-            margin: 38px 0 15px 0;
-            background: #fff7e6;
-            border-radius: 8px;
-            border: 1.2px solid #ffe6b7;
-            padding: 28px;
+        .button:hover {
+            background-color: #333;
         }
-        .howitworks h3 { color: #a06b18; margin-top: 0; }
-        .gallery { margin: 30px 0; display: flex; gap: 15px; flex-wrap: wrap; }
-        .gallery img { width: 200px; height: 150px; object-fit: cover; border-radius: 7px; border: 1.5px solid #ececec;}
-        .reviews { margin: 30px 0 0; }
-        .review {
-            background: #f9f9f9; border-left: 4px solid #dfc5a1;
-            margin-bottom: 18px; padding: 16px 18px; border-radius: 5px; font-size: 1.1em;
+        h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            font-weight: bold;
         }
-        footer a { color: #ccc; margin: 0 10px; text-decoration: none; font-size: 0.9em; }
-        @media (max-width: 700px) {
-            .profile-header { flex-direction: column; align-items: flex-start; gap: 16px; }
-            .gallery { flex-direction: column; align-items: center; }
-            .gallery img { width: 100%; max-width: 350px; }
+        ul, ol {
+            font-size: 1.1em;
+            line-height: 1.6;
+            padding-left: 20px;
         }
+        footer a {
+            color: #ccc;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 0.9em;
+        }
+        /* Services Slider Styles */
+        .services-slider { 
+            max-width:600px; 
+            margin:60px auto; 
+            background:#fff; 
+            border-radius:14px; 
+            box-shadow:0 4px 24px #0001; 
+            padding:40px 30px; 
+            text-align:center;
+        }
+        .services-slider h2 { font-size:2em; margin-bottom:24px; }
+        .slider { position:relative; min-height:140px; }
+        .slide { display:none; transition:opacity 0.4s; }
+        .slide.active { display:block; }
+        .slide h3 { font-size:1.3em; margin-bottom:8px; }
+        .slide p { font-size:1.08em; color:#555; }
+        .slider-controls { margin-top:22px; }
+        .slider-controls button {
+            background:#000; color:#fff; border:none; border-radius:5px; padding:12px 24px; margin:0 10px;
+            font-size:1em; font-weight:bold; cursor:pointer; transition:background 0.15s;
+        }
+        .slider-controls button:hover { background:#333; }
     </style>
 </head>
 <body>
@@ -96,77 +114,97 @@
 <header>
     <h1>Hauskeep Network™</h1>
     <nav>
-        <a href="index.html">Home</a>
         <a href="near-me.html">Find a Cleaner</a>
         <a href="register.html">Become a Pro</a>
-        <a href="reviews.html">Reviews</a>
+        <a href="services.html">Services</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="login.html">Log In / Sign Up</a>
     </nav>
 </header>
 
-<div class="profile">
-    <div class="profile-header">
-        <div class="profile-photo"></div>
-        <div class="profile-info">
-            <h2>Hauskeep <span class="verified">✔ Verified</span><span class="domestiq">DomestiQ™ Certified</span></h2>
-            <div style="font-size: 1.1em; color: #666;">Serving Central Valley, CA</div>
-            <div class="tags">
-                <span class="tag">Luxury Cleaning</span>
-                <span class="tag">Move-Out</span>
-                <span class="tag">Airbnb</span>
-                <span class="tag">Trauma-Informed</span>
-                <span class="tag">Declutter</span>
-                <span class="tag">Custom Requests</span>
-            </div>
-            <div class="rate">
-                Only 25¢ per sq ft · No minimums · Luxe touch, all vibes
-            </div>
-            <div style="margin-top: 14px; font-size: 1.1em;">
-                <span>Call/Text: <a href="tel:5593020057" style="color:#674600; text-decoration:underline;">(559) 302-0057</a></span><br>
-                <span>Web: <a href="https://www.thehauskeep.com" class="website-link" target="_blank">www.thehauskeep.com</a></span>
-            </div>
-            <div class="contact-bar" style="margin-top: 18px;">
-                <a href="mailto:hello@thehauskeep.com">Book Now</a>
-                <a href="tel:5593020057">Call</a>
-                <a href="https://www.thehauskeep.com" target="_blank">Visit Website</a>
-            </div>
-            <a href="https://book.stripe.com/eVqaEZdsGehI6aH4UTgw000" class="bookpay-btn" target="_blank">Book & Pay Now</a>
-            <div class="howitworks">
-                <h3>How It Works</h3>
-                <ol>
-                    <li>Book & pay for your clean securely through Hauskeep™.</li>
-                    <li>We assign you a DomestiQ™-certified pro for your date.</li>
-                    <li>Your cleaner gets paid only <em>after</em> the job is complete. No scams, no stress, all luxe.</li>
-                    <li>All bookings are covered by our satisfaction guarantee.</li>
-                </ol>
-            </div>
+<section class="hero">
+    <h2>Hire Luxury Cleaners Without the Guesswork</h2>
+    <p>Curated, trusted, and trauma-informed housekeepers, organizers, and move-out reset pros — all in one beautiful booking platform.</p>
+    <a href="near-me.html" class="button">Search by ZIP</a>
+    <a href="near-me.html" class="button">Book Now</a>
+</section>
+
+<section>
+    <h2>How It Works</h2>
+    <ol>
+        <li><strong>Search Your Area:</strong> Enter your ZIP and explore verified, premium cleaning pros near you.</li>
+        <li><strong>Browse Trusted Hauskeepers:</strong> View cleaner profiles, photos, pricing, and specialties.</li>
+        <li><strong>Book Direct or Request a Match:</strong> We’ll help you connect with the perfect fit.</li>
+    </ol>
+    <a href="near-me.html" class="button">Find a Hauskeeper</a>
+</section>
+
+<section class="services">
+    <h2>Our Featured Services</h2>
+    <ul>
+        <li>Deep Clean / Move-Out Reset</li>
+        <li>Weekly Luxe Homekeeping</li>
+        <li>Laundry Folding + Fridge Detox</li>
+        <li>Closet & Pantry Organizing</li>
+        <li>Trauma-Informed Reset Services</li>
+        <li>Airbnb Turnovers</li>
+    </ul>
+</section>
+
+<!-- SERVICES SLIDER INSTEAD OF REVIEWS -->
+<section class="services-slider">
+    <h2>Our Most-Booked Services</h2>
+    <div class="slider">
+        <div class="slide active">
+            <h3>✨ Deep Clean / Move-Out Reset</h3>
+            <p>For the “start fresh” moments—after tenants, before new chapters, or just because you’re THAT girl.</p>
+        </div>
+        <div class="slide">
+            <h3>🧼 Weekly Luxe Homekeeping</h3>
+            <p>Scheduled refresh for busy lives. No dust bunnies, only main character energy.</p>
+        </div>
+        <div class="slide">
+            <h3>🧺 Laundry Folding + Fridge Detox</h3>
+            <p>We’ll Marie Kondo your fridge and fold your laundry like a 5-star resort.</p>
+        </div>
+        <div class="slide">
+            <h3>🕯️ Trauma-Informed Reset Services</h3>
+            <p>Gentle, safe, and no judgment. Space that feels like self-care (and actual care).</p>
+        </div>
+        <div class="slide">
+            <h3>🧳 Airbnb Turnovers</h3>
+            <p>Guests walk in and say “Wow.” Bookings go up. You chill.</p>
         </div>
     </div>
-    <div class="gallery">
-        <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Before/After 1">
-        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Before/After 2">
-        <img src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=600&q=80" alt="Before/After 3">
+    <div class="slider-controls">
+        <button onclick="slide(-1)">&#8592; Prev</button>
+        <button onclick="slide(1)">Next &#8594;</button>
     </div>
-    <div class="reviews">
-        <h3>Client Reviews</h3>
-        <div class="review">
-            “Obsessed with my floors — and she even left flowers by my bed. Never going back to anyone else.”<br>
-            <b>- Taylor, Tulare</b>
-        </div>
-        <div class="review">
-            “The trauma-informed reset is LIFE. She actually listened and made my whole home feel like me again.”<br>
-            <b>- Erin, Fresno</b>
-        </div>
-        <div class="review">
-            “Booked last minute after a move-out. Fast, detailed, left it spotless. Landlord gave me my entire deposit back.”<br>
-            <b>- Marcus, Visalia</b>
-        </div>
-    </div>
-</div>
+</section>
+
+<section class="cta">
+    <h2>Your Clean Break Starts Here</h2>
+    <p>Find the help you’ve been praying for — vetted, verified, and truly premium.</p>
+    <a href="near-me.html" class="button">Start Your Search</a>
+    <a href="register.html" class="button">Become a Pro</a>
+</section>
 
 <footer>
-    <p>&copy; 2025 Hauskeep Network™</p>
-    <p><a href="index.html">Home</a> | <a href="near-me.html">Find a Cleaner</a> | <a href="register.html">Become a Pro</a> | <a href="reviews.html">Reviews</a></p>
+    <p>&copy; 2025 Hauskeep Network™ — Not just clean. Cared for.</p>
+    <p><a href="about.html">About</a> | <a href="terms.html">Terms</a> | <a href="privacy.html">Privacy</a> | <a href="contact.html">Contact</a> | <a href="#">DomestiQ™ Certification</a></p>
 </footer>
+
+<script>
+let current = 0;
+const slides = document.getElementsByClassName('slide');
+function showSlide(idx) {
+    slides[current].classList.remove('active');
+    current = (idx + slides.length) % slides.length;
+    slides[current].classList.add('active');
+}
+function slide(dir) { showSlide(current + dir); }
+document.addEventListener('DOMContentLoaded', () => showSlide(0));
+</script>
 
 </body>
 </html>
