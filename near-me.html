@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Find a Cleaner Near You – Hauskeep Network™</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Segoe UI', 'Comic Sans MS', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f9f7f2;
+            margin: 0; padding: 0;
+            color: #2a2a2a;
+        }
+        header {
+            background: #222;
+            color: #fff;
+            text-align: center;
+            padding: 30px 0 18px 0;
+        }
+        header h1 {
+            font-size: 2.5em;
+            letter-spacing: 2px;
+            margin: 0 0 10px 0;
+            font-weight: 700;
+        }
+        .search-bar {
+            background: #fff7e6;
+            border-radius: 24px;
+            box-shadow: 0 6px 20px #ffe6b750;
+            max-width: 440px;
+            margin: 35px auto 0 auto;
+            display: flex;
+            padding: 16px 20px;
+            align-items: center;
+        }
+        .search-bar input[type="text"] {
+            flex: 1;
+            padding: 13px 16px;
+            font-size: 1.2em;
+            border: 2px solid #ffe6b7;
+            border-radius: 14px;
+            outline: none;
+            background: #fff;
+            margin-right: 14px;
+        }
+        .search-bar button {
+            background: #a06b18;
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            padding: 13px 30px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+        .search-bar button:hover { background: #dfc38b; color: #333;}
+        .filters {
+            margin: 36px auto 18px auto;
+            text-align: center;
+        }
+        .filter-btn {
+            display: inline-block;
+            background: #ffe6b7;
+            color: #a06b18;
+            font-weight: 600;
+            border: none;
+            border-radius: 14px;
+            padding: 10px 23px;
+            margin: 0 10px 12px 0;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background 0.15s, color 0.15s;
+        }
+        .filter-btn.selected, .filter-btn:hover {
+            background: #a06b18;
+            color: #fff;
+        }
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: 30px auto 60px auto;
+            padding: 0 15px;
+        }
+        .pro-card {
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 6px 28px #0001;
+            padding: 34px 25px 25px 25px;
+            text-align: center;
+            position: relative;
+            transition: transform 0.15s, box-shadow 0.15s;
+        }
+        .pro-card:hover {
+            transform: translateY(-8px) scale(1.025);
+            box-shadow: 0 10px 32px #d4b69044;
+        }
+        .pro-photo {
+            width: 80px; height: 80px; border-radius: 50%; background: #faf1e3;
+            margin: -60px auto 18px auto; object-fit: cover; border: 3.5px solid #dfc5a1;
+            box-shadow: 0 4px 14px #dfc5a120;
+        }
+        .pro-name {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #a06b18;
+            margin: 4px 0 3px 0;
+        }
+        .badge {
+            background: #a06b18;
+            color: #fff;
+            border-radius: 7px;
+            padding: 4px 11px;
+            font-size: 0.93em;
+            font-weight: 700;
+            margin: 0 3px;
+            display: inline-block;
+        }
+        .pro-specialties {
+            margin: 13px 0 12px 0;
+        }
+        .tag {
+            background: #f7efd2;
+            color: #816214;
+            border-radius: 7px;
+            padding: 4px 10px;
+            font-size: 0.95em;
+            margin: 0 4px 7px 0;
+            display: inline-block;
+        }
+        .rate {
+            color: #674600;
+            font-weight: bold;
+            margin: 10px 0 12px 0;
+            font-size: 1.12em;
+        }
+        .book-btn {
+            background: #000;
+            color: #fff;
+            border: none;
+            border-radius: 11px;
+            padding: 14px 35px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+            margin-bottom: 0;
+            transition: background 0.15s;
+        }
+        .book-btn:hover {
+            background: #dfc38b;
+            color: #333;
+        }
+        .pro-card .website-link {
+            color: #a06b18;
+            text-decoration: underline;
+            font-weight: 600;
+            display: block;
+            margin-top: 11px;
+        }
+        footer {
+            background: #000;
+            color: #fff;
+            text-align: center;
+            padding: 24px 12px;
+            margin-top: 60px;
+            font-size: 1em;
+        }
+        @media (max-width: 700px) {
+            .results-grid { grid-template-columns: 1fr; }
+            .search-bar { flex-direction: column; gap: 12px; padding: 16px 10px; }
+            .search-bar input[type="text"] { margin: 0 0 10px 0;}
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Find a Cleaner Near You</h1>
+    <p style="font-size:1.13em;font-weight:500;margin-top:8px;">Browse DomestiQ™-certified, trauma-informed, and luxury pros in your area.</p>
+</header>
+
+<div class="search-bar">
+    <input type="text" placeholder="Enter ZIP or City (e.g. 93274 or Fresno)">
+    <button>Search</button>
+</div>
+
+<div class="filters">
+    <button class="filter-btn selected">All</button>
+    <button class="filter-btn">Luxury Cleaning</button>
+    <button class="filter-btn">Move-Out</button>
+    <button class="filter-btn">Airbnb</button>
+    <button class="filter-btn">Trauma-Informed</button>
+    <button class="filter-btn">Declutter</button>
+</div>
+
+<div class="results-grid">
+
+    <!-- Cleaner #1 -->
+    <div class="pro-card">
+        <img class="pro-photo" src="https://randomuser.me/api/portraits/women/44.jpg" alt="Jasmin's Luxe Clean Co.">
+        <div class="pro-name">Jasmin's Luxe Clean Co.</div>
+        <span class="badge">✔ DomestiQ™</span>
+        <span class="badge" style="background:#e3a800;">Featured</span>
+        <div class="pro-specialties">
+            <span class="tag">Luxury Cleaning</span>
+            <span class="tag">Move-Out</span>
+            <span class="tag">Trauma-Informed</span>
+        </div>
+        <div class="rate">25¢ per sq ft</div>
+        <button class="book-btn" onclick="window.location.href='pro.html'">Book Now</button>
+        <a href="https://www.instagram.com/" target="_blank" class="website-link">Instagram</a>
+    </div>
+    <!-- Cleaner #2 -->
+    <div class="pro-card">
+        <img class="pro-photo" src="https://randomuser.me/api/portraits/men/34.jpg" alt="The Reset Collective">
+        <div class="pro-name">The Reset Collective</div>
+        <span class="badge">✔ DomestiQ™</span>
+        <div class="pro-specialties">
+            <span class="tag">Fridge Detox</span>
+            <span class="tag">Closet Organizing</span>
+            <span class="tag">Weekly Luxe</span>
+        </div>
+        <div class="rate">$119 minimum</div>
+        <button class="book-btn" onclick="window.location.href='pro.html'">Book Now</button>
+        <a href="https://www.instagram.com/" target="_blank" class="website-link">Instagram</a>
+    </div>
+    <!-- Cleaner #3 -->
+    <div class="pro-card">
+        <img class="pro-photo" src="https://randomuser.me/api/portraits/women/65.jpg" alt="Maids That Slay">
+        <div class="pro-name">Maids That Slay</div>
+        <span class="badge" style="background:#e3a800;">Featured</span>
+        <div class="pro-specialties">
+            <span class="tag">Airbnb</span>
+            <span class="tag">Weekend Bookings</span>
+        </div>
+        <div class="rate">25¢ per sq ft</div>
+        <button class="book-btn" onclick="window.location.href='pro.html'">Book Now</button>
+        <a href="https://www.instagram.com/" target="_blank" class="website-link">Instagram</a>
+    </div>
+    <!-- Add more cleaners as needed! -->
+</div>
+
+<footer>
+    &copy; 2025 Hauskeep Network™ — Not just clean. Cared for.
+</footer>
+
+</body>
+</html>
