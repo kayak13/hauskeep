@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Now – Hauskeep Network™</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;600&display=swap');
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            background: #f5f4f2;
+            color: #191919;
+            margin: 0; padding: 0;
+        }
+        header {
+            background: #181818;
+            color: #fff;
+            text-align: center;
+            padding: 34px 0 22px 0;
+        }
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.3em;
+            letter-spacing: 1.5px;
+            margin: 0 0 10px 0;
+            font-weight: 600;
+        }
+        .main {
+            max-width: 500px;
+            margin: 55px auto 60px auto;
+            background: #fff;
+            border-radius: 13px;
+            box-shadow: 0 7px 32px #67460014;
+            padding: 44px 35px 35px 35px;
+        }
+        .main h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2em;
+            margin-bottom: 8px;
+            color: #674600;
+            font-weight: 600;
+        }
+        .main p {
+            color: #444;
+            margin-bottom: 22px;
+            font-size: 1.07em;
+        }
+        .price-note {
+            background: #efe7da;
+            color: #a06b18;
+            border-radius: 7px;
+            padding: 11px 17px;
+            margin: 15px 0 22px 0;
+            font-weight: 600;
+            font-size: 1.11em;
+        }
+        form label {
+            font-weight: 600;
+            margin-bottom: 6px;
+            display: block;
+            font-size: 1em;
+            color: #674600;
+        }
+        form input, form select, form textarea {
+            width: 100%;
+            margin-bottom: 17px;
+            padding: 13px;
+            border-radius: 7px;
+            border: 1.4px solid #dfc5a1;
+            font-size: 1em;
+            background: #f7f5f1;
+            font-family: 'Inter', Arial, sans-serif;
+        }
+        form textarea { resize: vertical; }
+        .stripe-btn {
+            background: #a06b18;
+            color: #fff;
+            border: none;
+            border-radius: 7px;
+            padding: 15px 0;
+            font-size: 1.13em;
+            width: 100%;
+            font-family: 'Inter', Arial, sans-serif;
+            font-weight: bold;
+            margin-top: 13px;
+            cursor: pointer;
+            transition: background 0.13s;
+            letter-spacing: 1px;
+        }
+        .stripe-btn:hover { background: #181818; }
+        .small-print {
+            margin: 26px 0 0 0;
+            font-size: 0.97em;
+            color: #857045;
+            text-align: center;
+        }
+        .guarantee {
+            color: #a06b18;
+            font-size: 1em;
+            font-weight: 600;
+            margin-top: 15px;
+        }
+        footer {
+            background: #181818;
+            color: #fff;
+            text-align: center;
+            padding: 26px 12px;
+            margin-top: 60px;
+            font-size: 1em;
+            font-family: 'Inter', Arial, sans-serif;
+        }
+        @media (max-width: 600px) {
+            .main { padding: 28px 7vw 25px 7vw; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Book Your Clean</h1>
+</header>
+
+<div class="main">
+    <h2>Effortless, Luxe, & Secure</h2>
+    <p>Ready for your space to feel brand new? Fill out the form and pay securely through Hauskeep. <br>We’ll reach out to confirm your date and match you with the perfect DomestiQ™-certified pro.</p>
+    <div class="price-note">Only 25¢ per sq ft &nbsp;|&nbsp; $100 minimum &nbsp;|&nbsp; All cards accepted</div>
+    <form>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Full Name" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="you@email.com" required>
+
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" name="phone" placeholder="(555) 555-5555" required>
+
+        <label for="address">Service Address</label>
+        <input type="text" id="address" name="address" placeholder="Street, City, ZIP" required>
+
+        <label for="sqft">Square Footage</label>
+        <input type="number" id="sqft" name="sqft" placeholder="e.g. 1500" required>
+
+        <label for="service">Service Needed</label>
+        <select id="service" name="service" required>
+            <option value="" disabled selected>Select a service</option>
+            <option>Deep Clean / Move-Out Reset</option>
+            <option>Weekly Luxe Homekeeping</option>
+            <option>Laundry Folding + Fridge Detox</option>
+            <option>Trauma-Informed Reset</option>
+            <option>Airbnb Turnover</option>
+            <option>Other / Custom</option>
+        </select>
+
+        <label for="notes">Anything we should know?</label>
+        <textarea id="notes" name="notes" rows="3" placeholder="Pet allergies, parking, or special requests…"></textarea>
+
+        <!-- Stripe Button (real payment link) -->
+        <a href="https://book.stripe.com/eVqaEZdsGehI6aH4UTgw000" class="stripe-btn" target="_blank">
+            Book & Pay Now
+        </a>
+    </form>
+    <div class="guarantee">Satisfaction guaranteed &ndash; or your next clean is free.</div>
+    <div class="small-print">
+        Questions? Call/text <b>(559) 302-0057</b> or email <b>hello@thehauskeep.com</b>
+    </div>
+</div>
+
+<footer>
+    &copy; 2025 Hauskeep Network™ — Not just clean. Cared for.
+</footer>
+
+</body>
+</html>
