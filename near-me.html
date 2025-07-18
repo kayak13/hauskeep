@@ -5,172 +5,200 @@
     <title>Find a Cleaner Near You – Hauskeep Network™</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;600&display=swap');
         body {
-            font-family: 'Segoe UI', 'Comic Sans MS', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f9f7f2;
+            font-family: 'Inter', Arial, sans-serif;
+            background: #f5f4f2;
             margin: 0; padding: 0;
-            color: #2a2a2a;
+            color: #191919;
         }
         header {
-            background: #222;
+            background: #181818;
             color: #fff;
             text-align: center;
-            padding: 30px 0 18px 0;
+            padding: 38px 0 20px 0;
         }
         header h1 {
-            font-size: 2.5em;
-            letter-spacing: 2px;
-            margin: 0 0 10px 0;
-            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8em;
+            letter-spacing: 1.5px;
+            margin: 0 0 8px 0;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        header p {
+            font-size: 1.18em;
+            margin: 7px 0 0 0;
+            color: #d8d3cb;
+            font-family: 'Inter', Arial, sans-serif;
         }
         .search-bar {
-            background: #fff7e6;
-            border-radius: 24px;
-            box-shadow: 0 6px 20px #ffe6b750;
-            max-width: 440px;
-            margin: 35px auto 0 auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px #00000012;
+            max-width: 430px;
+            margin: 42px auto 0 auto;
             display: flex;
-            padding: 16px 20px;
+            padding: 14px 20px;
             align-items: center;
         }
         .search-bar input[type="text"] {
             flex: 1;
-            padding: 13px 16px;
-            font-size: 1.2em;
-            border: 2px solid #ffe6b7;
-            border-radius: 14px;
+            padding: 13px 15px;
+            font-size: 1.13em;
+            border: none;
             outline: none;
             background: #fff;
-            margin-right: 14px;
+            margin-right: 12px;
+            font-family: 'Inter', Arial, sans-serif;
         }
         .search-bar button {
-            background: #a06b18;
+            background: #181818;
             color: #fff;
             border: none;
-            border-radius: 12px;
-            padding: 13px 30px;
+            border-radius: 7px;
+            padding: 13px 32px;
             font-size: 1em;
-            font-weight: bold;
+            font-weight: 600;
             cursor: pointer;
             transition: background 0.15s;
+            letter-spacing: 1px;
         }
-        .search-bar button:hover { background: #dfc38b; color: #333;}
+        .search-bar button:hover { background: #674600; color: #fff;}
         .filters {
-            margin: 36px auto 18px auto;
+            margin: 45px auto 25px auto;
             text-align: center;
         }
         .filter-btn {
             display: inline-block;
-            background: #ffe6b7;
-            color: #a06b18;
+            background: #efe7da;
+            color: #8a6a30;
             font-weight: 600;
             border: none;
-            border-radius: 14px;
-            padding: 10px 23px;
-            margin: 0 10px 12px 0;
+            border-radius: 7px;
+            padding: 10px 25px;
+            margin: 0 12px 12px 0;
             font-size: 1em;
             cursor: pointer;
-            transition: background 0.15s, color 0.15s;
+            transition: background 0.13s, color 0.13s;
+            font-family: 'Inter', Arial, sans-serif;
+            box-shadow: 0 2px 6px #00000010;
         }
         .filter-btn.selected, .filter-btn:hover {
-            background: #a06b18;
+            background: #181818;
             color: #fff;
         }
         .results-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-            gap: 30px;
-            max-width: 1100px;
-            margin: 30px auto 60px auto;
-            padding: 0 15px;
+            grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+            gap: 38px;
+            max-width: 1160px;
+            margin: 42px auto 72px auto;
+            padding: 0 18px;
         }
         .pro-card {
             background: #fff;
-            border-radius: 18px;
-            box-shadow: 0 6px 28px #0001;
-            padding: 34px 25px 25px 25px;
-            text-align: center;
+            border-radius: 11px;
+            box-shadow: 0 6px 22px #0000000c;
+            padding: 40px 30px 34px 30px;
+            text-align: left;
             position: relative;
-            transition: transform 0.15s, box-shadow 0.15s;
+            border: 1.5px solid #eee6dc;
+            transition: box-shadow 0.13s, border 0.15s;
         }
         .pro-card:hover {
-            transform: translateY(-8px) scale(1.025);
-            box-shadow: 0 10px 32px #d4b69044;
+            box-shadow: 0 12px 30px #00000023;
+            border: 1.5px solid #dfc5a1;
         }
         .pro-photo {
-            width: 80px; height: 80px; border-radius: 50%; background: #faf1e3;
-            margin: -60px auto 18px auto; object-fit: cover; border: 3.5px solid #dfc5a1;
-            box-shadow: 0 4px 14px #dfc5a120;
+            width: 68px; height: 68px; border-radius: 50%; background: #f4eee4;
+            object-fit: cover; border: 2.5px solid #dfc5a1;
+            position: absolute; top: -35px; left: 26px;
         }
+        .pro-content { margin-left: 100px; min-height: 68px; }
         .pro-name {
-            font-size: 1.3em;
-            font-weight: bold;
-            color: #a06b18;
-            margin: 4px 0 3px 0;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.22em;
+            font-weight: 600;
+            color: #674600;
+            margin: 0 0 4px 0;
+            letter-spacing: 0.5px;
         }
         .badge {
-            background: #a06b18;
+            background: #674600;
             color: #fff;
-            border-radius: 7px;
-            padding: 4px 11px;
-            font-size: 0.93em;
+            border-radius: 4.5px;
+            padding: 3px 11px 4px 11px;
+            font-size: 0.92em;
             font-weight: 700;
-            margin: 0 3px;
+            margin-right: 8px;
             display: inline-block;
+            letter-spacing: 1px;
+        }
+        .badge.featured {
+            background: #000;
+            color: #fff;
         }
         .pro-specialties {
             margin: 13px 0 12px 0;
         }
         .tag {
-            background: #f7efd2;
-            color: #816214;
-            border-radius: 7px;
-            padding: 4px 10px;
-            font-size: 0.95em;
-            margin: 0 4px 7px 0;
+            background: #f4ecd8;
+            color: #a06b18;
+            border-radius: 4px;
+            padding: 4px 11px 5px 11px;
+            font-size: 0.99em;
+            margin: 0 7px 7px 0;
             display: inline-block;
         }
         .rate {
-            color: #674600;
+            color: #181818;
             font-weight: bold;
-            margin: 10px 0 12px 0;
-            font-size: 1.12em;
+            margin: 12px 0 15px 0;
+            font-size: 1.11em;
+            letter-spacing: 0.5px;
         }
         .book-btn {
-            background: #000;
+            background: #181818;
             color: #fff;
             border: none;
-            border-radius: 11px;
-            padding: 14px 35px;
-            font-size: 1em;
-            font-weight: bold;
+            border-radius: 6px;
+            padding: 13px 36px;
+            font-size: 1.05em;
+            font-weight: 600;
             cursor: pointer;
-            margin-top: 10px;
-            margin-bottom: 0;
-            transition: background 0.15s;
+            margin-top: 11px;
+            transition: background 0.13s;
+            letter-spacing: 1px;
         }
         .book-btn:hover {
-            background: #dfc38b;
-            color: #333;
+            background: #674600;
+            color: #fff;
         }
         .pro-card .website-link {
             color: #a06b18;
             text-decoration: underline;
-            font-weight: 600;
+            font-weight: 500;
             display: block;
             margin-top: 11px;
+            font-size: 1em;
         }
         footer {
-            background: #000;
+            background: #181818;
             color: #fff;
             text-align: center;
             padding: 24px 12px;
             margin-top: 60px;
             font-size: 1em;
+            font-family: 'Inter', Arial, sans-serif;
+        }
+        @media (max-width: 900px) {
+            .pro-content { margin-left: 0; min-height:0; }
+            .pro-photo { position: static; display: block; margin: 0 auto 17px auto; }
         }
         @media (max-width: 700px) {
             .results-grid { grid-template-columns: 1fr; }
-            .search-bar { flex-direction: column; gap: 12px; padding: 16px 10px; }
+            .search-bar { flex-direction: column; gap: 11px; padding: 16px 10px; }
             .search-bar input[type="text"] { margin: 0 0 10px 0;}
         }
     </style>
@@ -179,7 +207,7 @@
 
 <header>
     <h1>Find a Cleaner Near You</h1>
-    <p style="font-size:1.13em;font-weight:500;margin-top:8px;">Browse DomestiQ™-certified, trauma-informed, and luxury pros in your area.</p>
+    <p>Browse DomestiQ™-certified, trauma-informed, and luxury pros in your area.</p>
 </header>
 
 <div class="search-bar">
@@ -201,44 +229,50 @@
     <!-- Cleaner #1 -->
     <div class="pro-card">
         <img class="pro-photo" src="https://randomuser.me/api/portraits/women/44.jpg" alt="Jasmin's Luxe Clean Co.">
-        <div class="pro-name">Jasmin's Luxe Clean Co.</div>
-        <span class="badge">✔ DomestiQ™</span>
-        <span class="badge" style="background:#e3a800;">Featured</span>
-        <div class="pro-specialties">
-            <span class="tag">Luxury Cleaning</span>
-            <span class="tag">Move-Out</span>
-            <span class="tag">Trauma-Informed</span>
+        <div class="pro-content">
+            <div class="pro-name">Jasmin's Luxe Clean Co.</div>
+            <span class="badge">DomestiQ™</span>
+            <span class="badge featured">Featured</span>
+            <div class="pro-specialties">
+                <span class="tag">Luxury Cleaning</span>
+                <span class="tag">Move-Out</span>
+                <span class="tag">Trauma-Informed</span>
+            </div>
+            <div class="rate">25¢ per sq ft</div>
+            <button class="book-btn" onclick="window.location.href='pro.html'">Book Now</button>
+            <a href="https://www.instagram.com/" target="_blank" class="website-link">Instagram</a>
         </div>
-        <div class="rate">25¢ per sq ft</div>
-        <button class="book-btn" onclick="window.location.href='pro.html'">Book Now</button>
-        <a href="https://www.instagram.com/" target="_blank" class="website-link">Instagram</a>
     </div>
     <!-- Cleaner #2 -->
     <div class="pro-card">
         <img class="pro-photo" src="https://randomuser.me/api/portraits/men/34.jpg" alt="The Reset Collective">
-        <div class="pro-name">The Reset Collective</div>
-        <span class="badge">✔ DomestiQ™</span>
-        <div class="pro-specialties">
-            <span class="tag">Fridge Detox</span>
-            <span class="tag">Closet Organizing</span>
-            <span class="tag">Weekly Luxe</span>
+        <div class="pro-content">
+            <div class="pro-name">The Reset Collective</div>
+            <span class="badge">DomestiQ™</span>
+            <div class="pro-specialties">
+                <span class="tag">Fridge Detox</span>
+                <span class="tag">Closet Organizing</span>
+                <span class="tag">Weekly Luxe</span>
+            </div>
+            <div class="rate">$119 minimum</div>
+            <button class="book-btn" onclick="window.location.href='pro.html'">Book Now</button>
+            <a href="https://www.instagram.com/" target="_blank" class="website-link">Instagram</a>
         </div>
-        <div class="rate">$119 minimum</div>
-        <button class="book-btn" onclick="window.location.href='pro.html'">Book Now</button>
-        <a href="https://www.instagram.com/" target="_blank" class="website-link">Instagram</a>
     </div>
     <!-- Cleaner #3 -->
     <div class="pro-card">
         <img class="pro-photo" src="https://randomuser.me/api/portraits/women/65.jpg" alt="Maids That Slay">
-        <div class="pro-name">Maids That Slay</div>
-        <span class="badge" style="background:#e3a800;">Featured</span>
-        <div class="pro-specialties">
-            <span class="tag">Airbnb</span>
-            <span class="tag">Weekend Bookings</span>
+        <div class="pro-content">
+            <div class="pro-name">Maids That Slay</div>
+            <span class="badge featured">Featured</span>
+            <div class="pro-specialties">
+                <span class="tag">Airbnb</span>
+                <span class="tag">Weekend Bookings</span>
+            </div>
+            <div class="rate">25¢ per sq ft</div>
+            <button class="book-btn" onclick="window.location.href='pro.html'">Book Now</button>
+            <a href="https://www.instagram.com/" target="_blank" class="website-link">Instagram</a>
         </div>
-        <div class="rate">25¢ per sq ft</div>
-        <button class="book-btn" onclick="window.location.href='pro.html'">Book Now</button>
-        <a href="https://www.instagram.com/" target="_blank" class="website-link">Instagram</a>
     </div>
     <!-- Add more cleaners as needed! -->
 </div>
