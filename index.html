@@ -14,7 +14,7 @@
             margin: 0;
             padding: 0;
         }
-        header, footer {
+        header {
             background: #181818;
             color: #e3c084;
             padding: 32px 20px 24px 20px;
@@ -50,45 +50,84 @@
             max-width: 1200px;
             margin: auto;
         }
+        /* Luxury Hero */
         .hero {
-            text-align: center;
-            background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+            position: relative;
+            min-height: 580px;
+            background: url('https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
             color: #fff;
-            box-shadow: 0 6px 32px #0006;
-            padding: 120px 20px 80px 20px;
-            border-radius: 18px;
+            margin-bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        .hero h2 {
+        .hero-overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(125deg,#181818cc 60%,#4b3c1e99 100%);
+            z-index: 1;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 600px;
+            margin: auto;
+        }
+        .hero-content h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.7em;
-            margin-bottom: 20px;
+            font-size: 3.4em;
+            margin-bottom: 32px;
             font-weight: bold;
             color: #e3c084;
-            text-shadow: 0 3px 10px #0008;
+            text-shadow: 0 3px 14px #000a, 0 1px 0 #fff1;
+            letter-spacing: 2px;
         }
-        .hero p {
-            font-size: 1.28em;
-            margin-bottom: 38px;
-            color: #fff;
-            text-shadow: 0 2px 8px #0006;
+        .hero-content p {
+            font-size: 1.45em;
+            margin-bottom: 48px;
+            color: #ede7da;
+            text-shadow: 0 2px 12px #000a;
         }
-        .button {
-            background: linear-gradient(90deg,#e3c084 0%, #b39856 100%);
+        .hero-content .button {
+            background: linear-gradient(90deg,#e3c084 0%, #c4a75e 100%);
             color: #181818;
-            padding: 17px 32px;
-            margin: 10px;
+            padding: 20px 48px;
             border: none;
             cursor: pointer;
             font-weight: bold;
-            border-radius: 7px;
-            font-size: 1.08em;
-            box-shadow: 0 3px 18px #e3c08444;
+            border-radius: 6px;
+            font-size: 1.19em;
+            box-shadow: 0 4px 36px #e3c08455;
             transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+            letter-spacing: 2px;
         }
-        .button:hover {
+        .hero-content .button:hover {
             background: linear-gradient(90deg,#f5e7c6 0%, #e3c084 100%);
             color: #2d2100;
-            box-shadow: 0 6px 28px #e3c08477;
+            box-shadow: 0 8px 48px #e3c08499;
+        }
+        /* Booking Button style for other sections */
+        .button {
+            background: #e3c084;
+            color: #181818;
+            padding: 15px 36px;
+            margin: 10px 0;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 4px;
+            font-size: 1.04em;
+            box-shadow: 0 2px 14px #e3c08444;
+            transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+            letter-spacing: 1px;
+            display: inline-block;
+            text-align: center;
+        }
+        .button:hover {
+            background: #f6e7c6;
+            color: #2d2100;
+            box-shadow: 0 4px 20px #e3c08477;
         }
         h2 {
             font-family: 'Playfair Display', serif;
@@ -107,7 +146,7 @@
             max-width:660px; 
             margin:60px auto; 
             background:#191919; 
-            border-radius:16px; 
+            border-radius:14px; 
             box-shadow:0 6px 32px #0005; 
             padding:48px 38px; 
             text-align:center;
@@ -121,34 +160,11 @@
         .slide p { font-size:1.13em; color:#f1e3c3; }
         .slider-controls { margin-top:28px; }
         .slider-controls button {
-            background:#e3c084; color:#181818; border:none; border-radius:6px; padding:13px 26px; margin:0 10px;
+            background:#e3c084; color:#181818; border:none; border-radius:4px; padding:13px 26px; margin:0 10px;
             font-size:1em; font-weight:bold; cursor:pointer; transition:background 0.15s;
             box-shadow: 0 2px 10px #e3c08444;
         }
         .slider-controls button:hover { background:#f6e7c6; color:#2d2100;}
-        /* Trust & Badges */
-        .trust-badges {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 38px;
-            margin: 50px 0 0 0;
-        }
-        .badge {
-            background: #fff;
-            border-radius: 50%;
-            padding: 20px;
-            box-shadow: 0 2px 10px #0003;
-            width: 90px;
-            height: 90px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .badge img {
-            height: 50px;
-            width: auto;
-        }
         /* Testimonials */
         .testimonials {
             margin: 70px auto 40px auto;
@@ -158,16 +174,109 @@
         .testimonial {
             background: #23201b;
             color: #f6eedd;
-            border-radius: 14px;
+            border-radius: 10px;
             box-shadow: 0 2px 20px #0003;
             margin: 18px auto;
-            padding: 38px 24px;
-            font-size: 1.15em;
+            padding: 32px 24px;
+            font-size: 1.13em;
             font-style: italic;
+            border-left: 5px solid #e3c084;
         }
         .testimonial strong {
             color: #e3c084;
             font-style: normal;
+        }
+        /* Booking Form */
+        .booking {
+            max-width: 480px;
+            margin: 60px auto 0 auto;
+            background: #181818;
+            border-radius: 12px;
+            box-shadow: 0 2px 26px #0003;
+            border: 1.5px solid #e3c08433;
+            padding: 44px 32px 34px 32px;
+        }
+        .booking h2 {
+            font-size: 1.7em;
+            text-align: center;
+            margin-bottom: 32px;
+            color: #e3c084;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        .booking label {
+            display: block;
+            margin-bottom: 18px;
+            font-weight: 600;
+            color: #e3c084;
+            font-size: 1.05em;
+            letter-spacing: .5px;
+        }
+        .booking input,
+        .booking select,
+        .booking textarea {
+            width: 100%;
+            padding: 12px 12px;
+            border-radius: 4px;
+            border: 1px solid #e3c08433;
+            background: #23201b;
+            color: #fff;
+            font-size: 1.05em;
+            margin-top: 6px;
+            margin-bottom: 2px;
+            font-family: 'Montserrat', sans-serif;
+            transition: border-color 0.2s;
+            outline: none;
+        }
+        .booking input:focus,
+        .booking select:focus,
+        .booking textarea:focus {
+            border-color: #e3c084;
+        }
+        .booking .button {
+            width: 100%;
+            margin-top: 18px;
+            margin-bottom: 0;
+            padding: 14px 0;
+            border-radius: 4px;
+            font-size: 1.09em;
+        }
+        .cta .button,
+        .testimonials .button,
+        .services .button,
+        .howitworks .button {
+            margin-top: 24px;
+        }
+        /* Trust & Badges at the bottom */
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 38px;
+            margin: 60px 0 0 0;
+        }
+        .badge {
+            background: #fff;
+            border-radius: 50%;
+            padding: 16px;
+            box-shadow: 0 2px 10px #0003;
+            width: 78px;
+            height: 78px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .badge img {
+            height: 44px;
+            width: auto;
+        }
+        footer {
+            background: #181818;
+            color: #e3c084;
+            padding: 32px 20px 24px 20px;
+            text-align: center;
+            box-shadow: 0 -2px 32px #0007;
         }
         footer a {
             color: #b39856;
@@ -175,12 +284,13 @@
             margin: 0 12px;
             font-size: 0.98em;
         }
-        /* Responsive */
         @media (max-width: 800px) {
             .hero, section { padding: 32px 8px; }
             .services-slider { padding: 24px 8px;}
             .trust-badges { gap: 14px; }
             header h1 { font-size: 2em;}
+            .booking { padding: 24px 10px; }
+            .hero-content h2 { font-size: 2em;}
         }
     </style>
 </head>
@@ -189,6 +299,7 @@
 <header>
     <h1>Hauskeep Network™</h1>
     <nav>
+        <a href="#booking">Book Now</a>
         <a href="near-me.html">Find a Cleaner</a>
         <a href="register.html">Become a Pro</a>
         <a href="services.html">Services</a>
@@ -197,48 +308,49 @@
     </nav>
 </header>
 
+<!-- Luxury Hero Entryway -->
 <section class="hero">
-    <h2>Hire Luxury Cleaners Without the Guesswork</h2>
-    <p>Curated, trusted, and trauma-informed housekeepers, organizers, and move-out reset pros — all in one beautiful booking platform.</p>
-    <a href="near-me.html" class="button">Search by ZIP</a>
-    <a href="near-me.html" class="button">Book Now</a>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <h2>Welcome to Hauskeep Network™</h2>
+        <p>Step into luxury. Curated, trusted, and trauma-informed housekeepers, organizers, and move-out reset pros — all in one beautiful booking platform.</p>
+        <a href="#booking" class="button">Book Now</a>
+    </div>
 </section>
 
-<div class="trust-badges">
-    <div class="badge">
-        <img src="https://img.icons8.com/color/96/verified-badge.png" alt="Verified">
-    </div>
-    <div class="badge">
-        <img src="https://img.icons8.com/color/96/diamond--v1.png" alt="Luxury">
-    </div>
-    <div class="badge">
-        <img src="https://img.icons8.com/color/96/medal.png" alt="Certified">
-    </div>
-    <div class="badge">
-        <img src="https://img.icons8.com/color/96/handshake.png" alt="Trusted">
-    </div>
-</div>
-
-<section>
+<section class="howitworks">
     <h2>How It Works</h2>
     <ol>
         <li><strong>Search Your Area:</strong> Enter your ZIP and explore verified, premium cleaning pros near you.</li>
         <li><strong>Browse Trusted Hauskeepers:</strong> View cleaner profiles, photos, pricing, and specialties.</li>
         <li><strong>Book Direct or Request a Match:</strong> We’ll help you connect with the perfect fit.</li>
     </ol>
-    <a href="near-me.html" class="button">Find a Hauskeeper</a>
+    <a href="#booking" class="button">Book Now</a>
 </section>
 
 <section class="services">
     <h2>Our Featured Services</h2>
     <ul>
-        <li>Deep Clean / Move-Out Reset</li>
-        <li>Weekly Luxe Homekeeping</li>
-        <li>Laundry Folding + Fridge Detox</li>
-        <li>Closet & Pantry Organizing</li>
-        <li>Trauma-Informed Reset Services</li>
-        <li>Airbnb Turnovers</li>
+        <li>
+            Deep Clean / Move-Out Reset
+        </li>
+        <li>
+            Weekly Luxe Homekeeping
+        </li>
+        <li>
+            Laundry Folding + Fridge Detox
+        </li>
+        <li>
+            Closet & Pantry Organizing
+        </li>
+        <li>
+            Trauma-Informed Reset Services
+        </li>
+        <li>
+            Airbnb Turnovers
+        </li>
     </ul>
+    <a href="#booking" class="button">Book This Service</a>
 </section>
 
 <section class="services-slider">
@@ -269,6 +381,7 @@
         <button onclick="slide(-1)">&#8592; Prev</button>
         <button onclick="slide(1)">Next &#8594;</button>
     </div>
+    <a href="#booking" class="button">Book Now</a>
 </section>
 
 <section class="testimonials">
@@ -281,12 +394,88 @@
         "Truly white-glove service. Discreet, professional, and the highest standards." <br>
         <strong>— Marcus K., Manhattan</strong>
     </div>
+    <a href="#booking" class="button">Book Your Clean</a>
 </section>
+
+<!-- Luxury Booking Section -->
+<section class="booking" id="booking">
+    <h2>Book Your Premium Clean</h2>
+    <form id="bookingForm" action="https://formspree.io/f/mjvnrzrd" method="POST">
+        <label>
+            Full Name
+            <input type="text" name="name" required autocomplete="name" placeholder="Your Name">
+        </label>
+        <label>
+            Email Address
+            <input type="email" name="email" required autocomplete="email" placeholder="you@email.com">
+        </label>
+        <label>
+            Phone Number
+            <input type="tel" name="phone" autocomplete="tel" placeholder="(Optional)">
+        </label>
+        <label>
+            ZIP Code
+            <input type="text" name="zip" required maxlength="10" pattern="[0-9\-]+" placeholder="00000">
+        </label>
+        <label>
+            Service
+            <select name="service" required>
+                <option value="" disabled selected>Select a service</option>
+                <option>Deep Clean / Move-Out Reset</option>
+                <option>Weekly Luxe Homekeeping</option>
+                <option>Laundry Folding + Fridge Detox</option>
+                <option>Closet & Pantry Organizing</option>
+                <option>Trauma-Informed Reset Services</option>
+                <option>Airbnb Turnovers</option>
+            </select>
+        </label>
+        <label>
+            Preferred Date
+            <input type="date" name="date" required>
+        </label>
+        <label>
+            Preferred Time
+            <select name="time">
+                <option value="" disabled selected>Select time</option>
+                <option>Morning</option>
+                <option>Afternoon</option>
+                <option>Evening</option>
+            </select>
+        </label>
+        <label>
+            Special Requests / Notes
+            <textarea name="notes" rows="3" placeholder="Anything we should know?"></textarea>
+        </label>
+        <button type="submit" class="button">Request Booking</button>
+    </form>
+    <div id="bookingSuccess" style="display:none; text-align:center; color:#e3c084; margin-top:32px; font-size:1.2em;">
+        <strong>Thank you for your booking!</strong> <br>
+        Your request has been received.<br>
+        <a href="#" id="calendarLink" style="color:#e3c084; text-decoration:underline;">Add to your calendar</a> <br>
+        We’ll be in touch soon.
+    </div>
+</section>
+
+<!-- Trust Icons at the Bottom -->
+<div class="trust-badges">
+    <div class="badge">
+        <img src="https://img.icons8.com/color/96/verified-badge.png" alt="Verified">
+    </div>
+    <div class="badge">
+        <img src="https://img.icons8.com/color/96/diamond--v1.png" alt="Luxury">
+    </div>
+    <div class="badge">
+        <img src="https://img.icons8.com/color/96/medal.png" alt="Certified">
+    </div>
+    <div class="badge">
+        <img src="https://img.icons8.com/color/96/handshake.png" alt="Trusted">
+    </div>
+</div>
 
 <section class="cta">
     <h2>Your Clean Break Starts Here</h2>
     <p>Find the help you’ve been praying for — vetted, verified, and truly premium.</p>
-    <a href="near-me.html" class="button">Start Your Search</a>
+    <a href="#booking" class="button">Start Your Search</a>
     <a href="register.html" class="button">Become a Pro</a>
 </section>
 
@@ -311,6 +500,34 @@ function showSlide(idx) {
 }
 function slide(dir) { showSlide(current + dir); }
 document.addEventListener('DOMContentLoaded', () => showSlide(0));
+
+// Booking form instant confirmation and calendar
+document.getElementById('bookingForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var form = e.target;
+    var data = new FormData(form);
+    fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+    }).then(function(response) {
+        if (response.ok) {
+            form.style.display = 'none';
+            document.getElementById('bookingSuccess').style.display = 'block';
+            let name = data.get('name') || 'Cleaning Appointment';
+            let service = data.get('service') || 'Cleaning Service';
+            let date = data.get('date');
+            let time = data.get('time') || '';
+            let calendarUrl = "https://calendar.google.com/calendar/render?action=TEMPLATE"
+                + "&text=" + encodeURIComponent(service + " with Hauskeep")
+                + "&details=" + encodeURIComponent("Booked by: " + name + (time ? ", Time: " + time : ""))
+                + (date ? "&dates=" + date.replace(/-/g, '') + "/" + date.replace(/-/g, '') : "");
+            document.getElementById('calendarLink').href = calendarUrl;
+        } else {
+            alert("There was a problem submitting your booking. Please try again!");
+        }
+    });
+});
 </script>
 
 </body>
