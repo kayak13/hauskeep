@@ -400,63 +400,43 @@
 <!-- Luxury Booking Section -->
 <section class="booking" id="booking">
     <h2>Book Your Premium Clean</h2>
-<form id="bookingForm" action="https://formspree.io/f/mjvnrzrd" method="POST">
-  <label>
-    Full Name
-    <input type="text" name="name" required placeholder="Your Name">
-  </label>
-  <label>
-    Email Address
-    <input type="email" name="email" required placeholder="you@email.com">
-  </label>
-  <label>
-    Phone Number
-    <input type="tel" name="phone" placeholder="(Optional)">
-  </label>
-  <label>
-    ZIP Code
-    <input type="text" name="zip" required maxlength="10" pattern="[0-9\-]+" placeholder="00000">
-  </label>
-  <label>
-    Service
-    <select name="service" required>
-      <option value="" disabled selected>Select a service</option>
-      <option>🔥 3-Hour Badass Clean – $249 Flat</option>
-      <option>Deep Clean / Move-Out Reset</option>
-      <option>Weekly Luxe Homekeeping</option>
-      <option>Laundry Folding + Fridge Detox</option>
-      <option>Closet & Pantry Organizing</option>
-      <option>Trauma-Informed Reset Services</option>
-      <option>Airbnb Turnovers</option>
-    </select>
-  </label>
-  <label>
-    Preferred Date
-    <input type="date" name="date" required>
-  </label>
-  <label>
-    Preferred Time
-    <select name="time">
-      <option value="" disabled selected>Select time</option>
-      <option>Morning</option>
-      <option>Afternoon</option>
-      <option>Evening</option>
-    </select>
-  </label>
-  <label>
-    Special Requests / Notes
-    <textarea name="notes" rows="3" placeholder="Anything we should know?"></textarea>
-  </label>
-  <button type="submit" class="button">Request Booking</button>
-</form>
-
-<!-- Success Message -->
-<div id="bookingSuccess" style="display:none; text-align:center; color:#e3c084; margin-top:32px; font-size:1.2em;">
-  <strong>Thank you for your booking!</strong><br>
-  Your request has been received.<br>
-  <a href="#" id="calendarLink" style="color:#e3c084; text-decoration:underline;">Add to your calendar</a><br>
-  We’ll be in touch soon.
-</div>
+    <form id="bookingForm" action="https://formspree.io/f/mjvnrzrd" method="POST">
+        <label>Full Name <input type="text" name="name" required></label>
+        <label>Email Address <input type="email" name="email" required></label>
+        <label>Phone Number <input type="tel" name="phone"></label>
+        <label>ZIP Code <input type="text" name="zip" required pattern="[0-9\\-]+"></label>
+        <label>Service
+            <select name="service" required>
+                <option value="" disabled selected>Select a service</option>
+                <option>🔥 3-Hour Badass Clean – $249 Flat</option>
+                <option>Deep Clean / Move-Out Reset</option>
+                <option>Weekly Luxe Homekeeping</option>
+                <option>Laundry Folding + Fridge Detox</option>
+                <option>Closet & Pantry Organizing</option>
+                <option>Trauma-Informed Reset Services</option>
+                <option>Airbnb Turnovers</option>
+            </select>
+        </label>
+        <label>Preferred Date <input type="date" name="date" required></label>
+        <label>Preferred Time
+            <select name="time">
+                <option value="" disabled selected>Select time</option>
+                <option>Morning</option>
+                <option>Afternoon</option>
+                <option>Evening</option>
+            </select>
+        </label>
+        <label>Special Requests / Notes
+            <textarea name="notes" rows="3" placeholder="Anything we should know?"></textarea>
+        </label>
+        <button type="submit">Request Booking</button>
+    </form>
+    <div id="bookingSuccess">
+        <strong>Thank you for your booking!</strong><br>
+        Your request has been received.<br>
+        <a href="#" id="calendarLink">Add to your calendar</a><br>
+        We’ll be in touch soon.
+    </div>
 </section>
 
 <!-- Trust Icons at the Bottom -->
@@ -505,46 +485,40 @@ function slide(dir) { showSlide(current + dir); }
 document.addEventListener('DOMContentLoaded', () => showSlide(0));
 
 // Booking form instant confirmation and calendar
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  const form = document.getElementById('bookingForm');
-  const successBox = document.getElementById('bookingSuccess');
-  const calendarLink = document.getElementById('calendarLink');
-
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    const data = new FormData(form);
-
-    fetch(form.action, {
-      method: 'POST',
-      body: data,
-      headers: { 'Accept': 'application/json' }
-    }).then(async response => {
-      if (response.ok) {
-        form.style.display = 'none';
-        successBox.style.display = 'block';
-
-        const name = data.get('name') || 'Cleaning Appointment';
-        const service = data.get('service') || 'Cleaning Service';
-        const date = data.get('date');
-        const time = data.get('time') || '';
-
-        // Google Calendar link generator
-        const calUrl = "https://calendar.google.com/calendar/render?action=TEMPLATE"
-          + "&text=" + encodeURIComponent(service + " with Hauskeep")
-          + "&details=" + encodeURIComponent("Booked by: " + name + (time ? ", Time: " + time : ""))
-          + (date ? "&dates=" + date.replace(/-/g, '') + "/" + date.replace(/-/g, '') : "");
-
-        calendarLink.href = calUrl;
-      } else {
-        const errorData = await response.json();
-        console.error("Booking failed:", errorData);
-        alert("Oops! Something went wrong. Please try again or email us directly.");
-      }
-    });
-  });
-});
-</script>
-
+  <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('bookingForm');
+            const successBox = document.getElementById('bookingSuccess');
+            const calendarLink = document.getElementById('calendarLink');
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                const data = new FormData(form);
+                fetch(form.action, {
+                    method: 'POST',
+                    body: data,
+                    headers: { 'Accept': 'application/json' }
+                }).then(async response => {
+                    if (response.ok) {
+                        form.style.display = 'none';
+                        successBox.style.display = 'block';
+                        const name = data.get('name') || 'Cleaning Appointment';
+                        const service = data.get('service') || 'Cleaning Service';
+                        const date = data.get('date');
+                        const time = data.get('time') || '';
+                        const calUrl = "https://calendar.google.com/calendar/render?action=TEMPLATE"
+                          + "&text=" + encodeURIComponent(service + " with Hauskeep")
+                          + "&details=" + encodeURIComponent("Booked by: " + name + (time ? ", Time: " + time : ""))
+                          + (date ? "&dates=" + date.replace(/-/g, '') + "/" + date.replace(/-/g, '') : "");
+                        calendarLink.href = calUrl;
+                    } else {
+                        const errorData = await response.json();
+                        alert("Oops! Something went wrong. Please try again.");
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
+
+
