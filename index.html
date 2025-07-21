@@ -400,7 +400,7 @@
 <!-- Luxury Booking Section -->
 <section class="booking" id="booking">
     <h2>Book Your Premium Clean</h2>
-    <form id="bookingForm" action="https://formspree.io/f/mjvnrzrd" method="POST">
+ <form id="bookingForm" action="https://formspree.io/f/xanbqrgk" method="POST">
         <label>Full Name <input type="text" name="name" required></label>
         <label>Email Address <input type="email" name="email" required></label>
         <label>Phone Number <input type="tel" name="phone"></label>
@@ -408,7 +408,7 @@
         <label>Service
             <select name="service" required>
                 <option value="" disabled selected>Select a service</option>
-                <option>🔥 3-Hour Badass Clean – $249 Flat</option>
+                <option>🔥 3-Hour Deep Reset – $249 Flat</option>
                 <option>Deep Clean / Move-Out Reset</option>
                 <option>Weekly Luxe Homekeeping</option>
                 <option>Laundry Folding + Fridge Detox</option>
@@ -434,7 +434,7 @@
     <div id="bookingSuccess">
         <strong>Thank you for your booking!</strong><br>
         Your request has been received.<br>
-        <a href="#" id="calendarLink">Add to your calendar</a><br>
+        <a href="#" id="calendarLink" target="_blank" style="text-decoration: underline;">Add to your calendar</a><br>
         We’ll be in touch soon.
     </div>
 </section>
@@ -485,7 +485,7 @@ function slide(dir) { showSlide(current + dir); }
 document.addEventListener('DOMContentLoaded', () => showSlide(0));
 
 // Booking form instant confirmation and calendar
-  <script>
+  <script>  <script>
         document.addEventListener('DOMContentLoaded', function () {
             const form = document.getElementById('bookingForm');
             const successBox = document.getElementById('bookingSuccess');
@@ -511,7 +511,6 @@ document.addEventListener('DOMContentLoaded', () => showSlide(0));
                           + (date ? "&dates=" + date.replace(/-/g, '') + "/" + date.replace(/-/g, '') : "");
                         calendarLink.href = calUrl;
                     } else {
-                        const errorData = await response.json();
                         alert("Oops! Something went wrong. Please try again.");
                     }
                 });
