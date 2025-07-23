@@ -395,37 +395,13 @@
 <!-- Luxury Booking Section -->
 <section class="booking" id="booking">
     <h2>Book Your Premium Clean</h2>
- <form id="bookingForm" action="https://formspree.io/f/xanbqrgk" method="POST">
-        <label>Full Name <input type="text" name="name" required></label>
-        <label>Email Address <input type="email" name="email" required></label>
-        <label>Phone Number <input type="tel" name="phone"></label>
-        <label>ZIP Code <input type="text" name="zip" placeholder="e.g. 93291" required pattern="[0-9\-]+">
-        </label>        <label>Service
-            <select name="service" required>
-                <option value="" disabled selected>Select a service</option>
-                <option>🔥 3-Hour Deep Reset – $249 Flat</option>
-                <option>Deep Clean / Move-Out Reset</option>
-                <option>Weekly Luxe Homekeeping</option>
-                <option>Laundry Folding + Fridge Detox</option>
-                <option>Closet & Pantry Organizing</option>
-                <option>Trauma-Informed Reset Services</option>
-                <option>Airbnb Turnovers</option>
-            </select>
-        </label>
-        <label>Preferred Date <input type="date" name="date" required></label>
-        <label>Preferred Time
-            <select name="time">
-                <option value="" disabled selected>Select time</option>
-                <option>Morning</option>
-                <option>Afternoon</option>
-                <option>Evening</option>
-            </select>
-        </label>
-        <label>Special Requests / Notes
-            <textarea name="notes" rows="3" placeholder="Anything we should know?"></textarea>
-        </label>
-        <button type="submit">Request Booking</button>
-    </form>
+<form action="https://formspree.io/f/xanbqrgk" method="POST">
+  <!-- your fields here -->
+  <input type="text" name="name" required>
+  <input type="email" name="email" required>
+  ...
+  <button type="submit">Submit</button>
+</form>
    <div id="bookingSuccess" style="display:none;">
   <strong>Thank you for your booking!</strong><br>
   Your request has been received.<br>
