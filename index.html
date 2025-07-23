@@ -426,31 +426,28 @@
         </label>
         <button type="submit">Request Booking</button>
     </form>
-    <div id="bookingSuccess">
-        <strong>Thank you for your booking!</strong><br>
-        Your request has been received.<br>
-        We’ll be in touch soon.
-    </div>
+   <div id="bookingSuccess" style="display:none;">
+  <strong>Thank you for your booking!</strong><br>
+  Your request has been received.<br>
+  We’ll be in touch soon.
+</div>
 </section>
 
 <!-- Trust Icons at the Bottom -->
 <div class="trust-badges">
-    <div class="badge">
-        <img src="https://img.icons8.com/color/96/verified-badge.png">
-    </div>
-    <div class="badge">
-        <img src="https://img.icons8.com/color/96/security-checked.png" alt="Certified">
-    </div>
-    <div class="badge">
-        <img src="https://img.icons8.com/color/96/handshake.png" alt="Trusted">
-    </div>
+  <div class="badge">
+    <img src="https://img.icons8.com/color/96/verified-badge.png">
+  </div>
+  <div class="badge">
+    <img src="https://img.icons8.com/color/96/security-checked.png" alt="Certified">
+  </div>
+  <div class="badge">
+<img src="domestiq-certified-badge.svg" alt="DomestiQ Certified Badge">  </div>
 </div>
 
 <section class="cta">
     <h2>Your Clean Break Starts Here</h2>
     <p>Find the help you’ve been praying for — vetted, verified, and truly premium.</p>
-    <a href="#booking" class="button">Start Your Search</a>
-    <a href="register.html" class="button">Become a Pro</a>
 </section>
 
 <footer>
@@ -476,30 +473,36 @@ function slide(dir) { showSlide(current + dir); }
 document.addEventListener('DOMContentLoaded', () => showSlide(0));
 
 // Booking form instant confirmation 
-        document.addEventListener('DOMContentLoaded', function () {
-            const form = document.getElementById('bookingForm');
-            const successBox = document.getElementById('bookingSuccess');
-            form.addEventListener('submit', function (e) {
-                e.preventDefault();
-                const data = new FormData(form);
-                fetch(form.action, {
-                    method: 'POST',
-                    body: data,
-                    headers: { 'Accept': 'application/json' }
-                }).then(async response => {
-                    if (response.ok) {
-                        form.style.display = 'none';
-                        successBox.style.display = 'block';
-                        const name = data.get('name') || 'Cleaning Appointment';
-                        const service = data.get('service') || 'Cleaning Service';
-                        const date = data.get('date');
-                        const time = data.get('time') || '';
-                    } else {
-                        alert("Oops! Something went wrong. Please try again.");
-                    }
-                });
-            });
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('bookingForm');
+    const successBox = document.getElementById('bookingSuccess');
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const data = new FormData(form);
+        fetch(form.action, {
+            method: 'POST',
+            body: data,
+            headers: { 'Accept': 'application/json' }
+        }).then(async response => {
+            if (response.ok) {
+                form.style.display = 'none';
+                successBox.style.display = 'block';
+
+                const service = data.get('service') || '';
+                if (service.includes("3-Hour Deep Reset")) {
+                    setTimeout(() => {
+                        window.location.href = "https://book.stripe.com/aFafZj4Wac9A9mTgDBgw001";
+                    }, 2000);
+                }
+            } else {
+                alert("Oops! Something went wrong. Please try again.");
+            }
+        }).catch(error => {
+            console.error("Form submission error:", error);
+            alert("Oops! Something went wrong on our end.");
         });
-    </script>
+    });
+});
+</script>
 </body>
 </html>
