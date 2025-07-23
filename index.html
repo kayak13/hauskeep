@@ -247,6 +247,7 @@
         .howitworks .button {
             margin-top: 24px;
         }
+
         /* Trust & Badges at the bottom */
         .trust-badges {
             display: flex;
@@ -293,17 +294,14 @@
         }
     </style>
 </head>
+<meta name="description" content="Book trauma-informed, luxury homekeepers & move-out specialists via the Hauskeep Network™ — curated and discreet premium cleaning services in Visalia, Tulare, and nearby.">
 <body>
 
 <header>
     <h1>Hauskeep Network™</h1>
     <nav>
         <a href="#booking">Book Now</a>
-        <a href="near-me.html">Find a Cleaner</a>
-        <a href="register.html">Become a Pro</a>
         <a href="services.html">Services</a>
-        <a href="pricing.html">Pricing</a>
-        <a href="login.html">Log In / Sign Up</a>
     </nav>
 </header>
 
@@ -320,9 +318,7 @@
 <section class="howitworks">
     <h2>How It Works</h2>
     <ol>
-        <li><strong>Search Your Area:</strong> Enter your ZIP and explore verified, premium cleaning pros near you.</li>
-        <li><strong>Browse Trusted Hauskeepers:</strong> View cleaner profiles, photos, pricing, and specialties.</li>
-        <li><strong>Book Direct or Request a Match:</strong> We’ll help you connect with the perfect fit.</li>
+        <li><strong>Book Through the form Below or Text 559-302-0057 to be Matched with your Exclusive Consultant :</strong> We’ll help you connect with the perfect fit.</li>
     </ol>
     <a href="#booking" class="button">Book Now</a>
 </section>
@@ -386,12 +382,12 @@
 <section class="testimonials">
     <h2>Client Testimonials</h2>
     <div class="testimonial">
-        "Hauskeep found us a cleaner that felt like family! Our home has never looked so stunning." <br>
-        <strong>— Olivia R., Palm Beach</strong>
+        "I really appreciate your communication during the whole process. You kept me apprised of dates, times and any changes. Both you and Elizabeth are very hard workers. The house looked great after you were finished. Thank you very much for your help!!! I highly recommend you to anyone who needs cleaning services." <br>
+        <strong>— Doug Berg- Visalia CA  </strong>
     </div>
     <div class="testimonial">
         "Truly white-glove service. Discreet, professional, and the highest standards." <br>
-        <strong>— Marcus K., Manhattan</strong>
+        <strong>— Marcus K., Visalia CA </strong>
     </div>
     <a href="#booking" class="button">Book Your Clean</a>
 </section>
@@ -403,8 +399,8 @@
         <label>Full Name <input type="text" name="name" required></label>
         <label>Email Address <input type="email" name="email" required></label>
         <label>Phone Number <input type="tel" name="phone"></label>
-        <label>ZIP Code <input type="text" name="zip" required pattern="[0-9\\-]+"></label>
-        <label>Service
+        <label>ZIP Code <input type="text" name="zip" placeholder="e.g. 93291" required pattern="[0-9\-]+">
+        </label>        <label>Service
             <select name="service" required>
                 <option value="" disabled selected>Select a service</option>
                 <option>🔥 3-Hour Deep Reset – $249 Flat</option>
@@ -433,7 +429,6 @@
     <div id="bookingSuccess">
         <strong>Thank you for your booking!</strong><br>
         Your request has been received.<br>
-        <a href="#" id="calendarLink" target="_blank" style="text-decoration: underline;">Add to your calendar</a><br>
         We’ll be in touch soon.
     </div>
 </section>
@@ -441,13 +436,10 @@
 <!-- Trust Icons at the Bottom -->
 <div class="trust-badges">
     <div class="badge">
-        <img src="https://img.icons8.com/color/96/verified-badge.png" alt="Verified">
+        <img src="https://img.icons8.com/color/96/verified-badge.png">
     </div>
     <div class="badge">
-        <img src="https://img.icons8.com/color/96/diamond--v1.png" alt="Luxury">
-    </div>
-    <div class="badge">
-        <img src="https://img.icons8.com/color/96/medal.png" alt="Certified">
+        <img src="https://img.icons8.com/color/96/security-checked.png" alt="Certified">
     </div>
     <div class="badge">
         <img src="https://img.icons8.com/color/96/handshake.png" alt="Trusted">
@@ -483,12 +475,10 @@ function showSlide(idx) {
 function slide(dir) { showSlide(current + dir); }
 document.addEventListener('DOMContentLoaded', () => showSlide(0));
 
-// Booking form instant confirmation and calendar
-  <script> 
+// Booking form instant confirmation 
         document.addEventListener('DOMContentLoaded', function () {
             const form = document.getElementById('bookingForm');
             const successBox = document.getElementById('bookingSuccess');
-            const calendarLink = document.getElementById('calendarLink');
             form.addEventListener('submit', function (e) {
                 e.preventDefault();
                 const data = new FormData(form);
@@ -504,11 +494,6 @@ document.addEventListener('DOMContentLoaded', () => showSlide(0));
                         const service = data.get('service') || 'Cleaning Service';
                         const date = data.get('date');
                         const time = data.get('time') || '';
-                        const calUrl = "https://calendar.google.com/calendar/render?action=TEMPLATE"
-                          + "&text=" + encodeURIComponent(service + " with Hauskeep")
-                          + "&details=" + encodeURIComponent("Booked by: " + name + (time ? ", Time: " + time : ""))
-                          + (date ? "&dates=" + date.replace(/-/g, '') + "/" + date.replace(/-/g, '') : "");
-                        calendarLink.href = calUrl;
                     } else {
                         alert("Oops! Something went wrong. Please try again.");
                     }
